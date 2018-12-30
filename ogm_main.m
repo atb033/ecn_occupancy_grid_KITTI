@@ -25,12 +25,22 @@ for i = 1:length(pose)
     cam = 2;
     img = imread(sprintf('%s/image_%02d/data/%010d.png',base_dir,cam,i-1));
     imshow(img);
+    title('Scene Image')
     % real time point cloud
     subplot(2,2,3) 
     pcshow(ptCloud)
+    hold on
     set(gca, 'View', [0, 90])
     xlim([-60,60])
     ylim([-60,60])
+    title('Instantaneous Point Cloud')
+    l=4;b=1.5; h = 1.5;
+    
+    plot3([-l/2,l/2,l/2,-l/2,-l/2],[-b/2,-b/2,b/2,b/2,-b/2],[0,0,0,0,0], ...
+        'b','LineWidth',1);
+    xlabel('X[meters]')
+    ylabel('Y[meters]')
+    hold off
     pbaspect([1,1,1])
     
     % Occupancy grid plot
@@ -57,3 +67,4 @@ for i=1:length(F)
 end
 % close the writer object
 close(writerObj);
+

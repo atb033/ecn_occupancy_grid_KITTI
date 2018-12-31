@@ -44,7 +44,7 @@ for i = 1:length(pose)
     hold off
     pbaspect([1,1,1])
     
-    % Display current occupancy grid map
+    % Display currentccupancy grid plot
     subplot(2,2,4)
     show(omap); % Display occupancy grid
     hold on;
